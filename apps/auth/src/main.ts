@@ -8,6 +8,11 @@ import { Transport } from '@nestjs/microservices';
 
 async function bootstrap() {
   const app = await NestFactory.create(AuthModule);
+  app.enableCors({
+    origin: ['http://localhost:5173'],
+    methods: ['POST', 'PUT', 'DELETE', 'GET', 'PATCH'],
+    credentials: true,
+  });
   const configService = app.get(ConfigService);
   app.connectMicroservice({
     transport: Transport.TCP,
