@@ -17,15 +17,6 @@
         "tsConfigPath": "libs/common/tsconfig.lib.json"
       }
     },
-    "reservations": {
-      "type": "application",
-      "root": "apps/reservations",
-      "entryFile": "main",
-      "sourceRoot": "apps/reservations/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/reservations/tsconfig.app.json"
-      }
-    },
     "auth": {
       "type": "application",
       "root": "apps/auth",
@@ -42,6 +33,15 @@
       "sourceRoot": "apps/loan/src",
       "compilerOptions": {
         "tsConfigPath": "apps/loan/tsconfig.app.json"
+      }
+    },
+    "direct-debit": {
+      "type": "application",
+      "root": "apps/direct-debit",
+      "entryFile": "main",
+      "sourceRoot": "apps/direct-debit/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/direct-debit/tsconfig.app.json"
       }
     }
   },

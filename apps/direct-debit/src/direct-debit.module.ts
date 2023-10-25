@@ -1,22 +1,20 @@
 import { Module } from '@nestjs/common';
-import { LoanController } from './loan.controller';
-import { LoanService } from './loan.service';
+import { DirectDebitService } from './direct-debit.service';
+import { DirectDebitController } from './direct-debit.controller';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AUTH_SERVICE, DatabaseModule, LoggerModule } from 'y/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { JwtModule } from '@nestjs/jwt';
-import { LoanDocument, LoanSchema } from './model/loan.schema';
-import { LoanRepository } from './loan.repository';
-import { HttpModule } from '@nestjs/axios';
+import { DirectDebitDocument, DirectDebitSchema } from './model/direct-debit.model';
+import { DirectDebitRepository } from './direct-debit.repository';
 
 @Module({
   imports: [
     ConfigModule,
     LoggerModule,
-    HttpModule,
     DatabaseModule,
     DatabaseModule.forFeature([
-      { name: LoanDocument.name, schema: LoanSchema },
+      { name: DirectDebitDocument.name, schema: DirectDebitSchema },
     ]),
     ClientsModule.registerAsync([
       {
@@ -34,7 +32,7 @@ import { HttpModule } from '@nestjs/axios';
     ]),
     JwtModule.register({}),
   ],
-  controllers: [LoanController],
-  providers: [LoanService, LoanRepository],
+  controllers: [DirectDebitController],
+  providers: [DirectDebitService, DirectDebitRepository],
 })
-export class LoanModule {}
+export class DirectDebitModule {}
